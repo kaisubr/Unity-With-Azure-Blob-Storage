@@ -1,0 +1,4 @@
+/Temp/
+!/Assets/**/*.meta
+.vs/
+/Logs/

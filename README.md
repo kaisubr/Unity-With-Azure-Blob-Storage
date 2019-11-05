@@ -11,4 +11,6 @@ The connection string can typically be found on your Azure Portal. Input your co
 
 In the sample code, a container called `example` is created, where `log.txt` is read and updated to append the current date/time. Pretty cool!
 
+Open up Microsoft Azure Storage Explorer to see the result below.
+
 ![](blob.PNG)

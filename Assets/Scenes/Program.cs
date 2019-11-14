@@ -24,6 +24,7 @@ public class Program : MonoBehaviour
     {
         Debug.Log(cxnstr);
 
+
         CloudStorageAccount act = CloudStorageAccount.Parse(cxnstr);
         CloudBlobClient client = act.CreateCloudBlobClient();
 
@@ -33,6 +34,36 @@ public class Program : MonoBehaviour
         CloudBlockBlob blob = container.GetBlockBlobReference("log.txt");
         //blob.UploadTextAsync("Unity upload").Wait();
         appendText(blob, "Unity log: " + System.DateTime.UtcNow.ToString("MM-dd-yyyy hh:mm:ss"));
+
+        downloadDemo(cxnstr);
+    }
+
+    public async Task downloadDemo(string cxnstr)
+    {
+        BlobModel bm = new BlobModel("cat.obj", "example", cxnstr);
+        if (await bm.exists())
+        {
+            await bm.download("catmodel.obj"); //you MUST await this, otherwise file can't be imported since it may not be downloaded yet
+            Debug.Log("Downloaded.");
+
+            Mesh meshHold = new Mesh();
+            ObjImporter newMesh = new ObjImporter();
+            meshHold = newMesh.ImportFile("./Assets/Resources/catmodel.obj");//"./Assets/BlobServerModels/catmodel.obj"); VS ./Assets/Scenes/catmodel.obj
+            Debug.Log("Imported");
+
+            GameObject myCat = new GameObject();
+            MeshRenderer meshRenderer = myCat.AddComponent<MeshRenderer>();
+            MeshFilter filter = myCat.AddComponent<MeshFilter>();
+            filter.mesh = meshHold;
+                                            //./Assets/Resources/metal01.mat
+            Material catMaterial = Resources.Load("metal01", typeof(Material)) as Material;
+            myCat.GetComponent<MeshRenderer>().material = catMaterial;
+
+            Instantiate(myCat);
+            myCat.transform.position = new Vector3(47, -365, -59);
+
+            Debug.Log("Done");
+        }
     }
 
     public static async Task appendText(CloudBlockBlob blob, string v)

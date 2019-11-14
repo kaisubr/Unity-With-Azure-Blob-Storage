@@ -60,6 +60,8 @@
      <Compile Include="Assets\AzureSamples\WindowsAzure.Storage\FileStorage.cs" />
      <Compile Include="Assets\AzureSamples\WindowsAzure.Storage\QueueStorage.cs" />
      <Compile Include="Assets\AzureSamples\WindowsAzure.Storage\TableStorage.cs" />
+     <Compile Include="Assets\Scenes\BlobModel.cs" />
+     <Compile Include="Assets\Scenes\ObjImporter.cs" />
      <Compile Include="Assets\Scenes\Program.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/plsub/Desktop/Synced/Personal/Development/unity-workspace/AzureBlobStorage/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

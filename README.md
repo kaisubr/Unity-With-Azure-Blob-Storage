@@ -15,6 +15,8 @@ Note: the demo uses a `cat.obj` that I uploaded onto Azure. Any `.obj` file shou
 Instantiation:
 ```C#
 BlobModel bm = new BlobModel("fileNameOnAzure.obj", "ContainerItIsIn", connectionString);
+...
+await bm.download("fileNameToSaveAs.obj");
 ```
 
 Sample usage:

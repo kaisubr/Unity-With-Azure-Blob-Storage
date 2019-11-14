@@ -4,7 +4,7 @@ This client example usage is for AR Sphere.
 Here, you can see a Unity demonstration that utilizes Azure Blob Storage to stream and display a 3D model at runtime.
  
 ## Using `BlobModel`
-`BlobModel.cs` is a mini-library that helps you read a `.obj` file and display it, _at runtime_, on the `SampleScene`. 
+`BlobModel.cs` is a mini-library that helps you download a `.obj` file to later display it, at runtime, on the `SampleScene`. 
 Note: the demo uses a `cat.obj` that I uploaded onto Azure. Any `.obj` file should work as long as the mesh isn't too complicated.
 
 * Loading at runtime is difficult for `.fbx` files; more [resources](http://wiki.unity3d.com/index.php?title=ObjImporter) are available for `.obj` files
